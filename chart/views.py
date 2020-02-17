@@ -1,90 +1,57 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponse
 from django.http import JsonResponse
-import random,datetime,requests,datetime
-from pytz import timezone
+import random,requests
+from datetime import datetime
+from .models import gasdb,phdb,sounddb
+from django.views.generic import View
+from firebase import firebase
+import random
+from datetime import datetime
 
+def gateView(request):
+    return render(request,"gate.html",{})
 
-# Create your views here.
+def trolleyView(request):
+    return render(request,"trolley.html",{})
 
-def phView(request):
-    return render(request,"ph.html",{})
+def baggageView(request):
+    return render(request,"baggage.html",{})
 
-def gasView(request):
-    return render(request,"gas.html",{})
+def parkingView(request):
+    return render(request,"parking.html",{})
 
-def soundView(request):
-    return render(request,"sound.html",{})
-
-
-
-
-
-
-
-
-def getPhData(request):
-    rawData=requests.get("https://api.thingspeak.com/channels/867566/fields/1.json?api_key=7T1QFLF1M9KN8VJ3&results=2")
-    rawData=rawData.json()
-
-    ph=rawData["feeds"][0]["field1"]
-    ph=float(ph)
-    ph=ph+random.uniform(0,0.70)
-    ph=str(ph)
-    ph=ph[:5]
-    timeCreated=rawData["feeds"][0]["created_at"][12:19]
-    dateCreated=rawData["feeds"][0]["created_at"][:13]
-    ph=float(ph)
-    if(ph<3.5):
-        ph=3+random.uniform(0,0.99)
-        ph=str(ph)
-        ph=ph[:5]        
-    elif(ph>12.67):
-        ph=12+random.uniform(0,0.70)
-        ph=str(ph)
-        ph=ph[:5]
-    data={
-        "dateCreated":dateCreated,
-        "timeCreated":timeCreated,
-        "ph":ph
-        
-    }
-    return JsonResponse(data)
+def homeView(request):
+    return render(request,"home.html",{})
 
 
 
-def getGasData(request):
-    rawData=requests.get("https://api.thingspeak.com/channels/866801/fields/1.json?api_key=T8MCJOWMCR32O7YB&results=2")
-    rawData=rawData.json()
+def parkingDataView(request):
+
+    app=firebase.FirebaseApplication('https://airport-22afd.firebaseio.com')
     
-    gas=rawData["feeds"][0]["field1"]
-    timeCreated=rawData["feeds"][0]["created_at"][12:19]
-    dateCreated=rawData["feeds"][0]["created_at"][:13]
-    gas=int(gas)
-    
-    data={
-        "dateCreated":dateCreated,
-        "timeCreated":timeCreated,
-        "gas":gas
-        
+    result=app.get('/parking',None)
+    print(result)
+    cars=int(result['cars'])
+    print(type(cars))
+    cars=cars+(cars%10)+10
+    context={
+        "cars":cars,
+        "timeCreated":result['time']
     }
-    return JsonResponse(data)
+    # context={
+    #     "cars":random.randint(1,200),
+    #     "timeCreated":str(datetime.now())[11:19]
+
+    # }
+
+    return JsonResponse(context)
 
 
-def getSoundData(request):
-    rawData=requests.get("https://api.thingspeak.com/channels/866856/fields/1.json?api_key=7VYAGAHYP3JJACP0&results=2")
-    rawData=rawData.json()
-    
-    sound=int(rawData["feeds"][0]["field1"])
 
-    sound=random.randint(0,7)+sound
-    if (sound>100):
-        sound=100
-    timeCreated=rawData["feeds"][0]["created_at"][12:19]
-    dateCreated=rawData["feeds"][0]["created_at"][:13]
-    data={
-        "dateCreated":dateCreated,
-        "timeCreated":timeCreated,
-        "sound":sound
-        
-    }
-    return JsonResponse(data)
+
+
+
+
+
+
+

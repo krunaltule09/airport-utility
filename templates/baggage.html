@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="wrapper">
+    <div class="belt1">
+        <canvas id="myChart1"  ></canvas>
+    </div>
+    <div class="belt2">
+        <canvas id="myChart2"  ></canvas>
+    </div>
+    <div class="belt3">
+        <canvas id="myChart3"  ></canvas>
+    </div>
+
+    <div class="belt4">
+        <canvas id="myChart4"  ></canvas>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<script>
+
+var ctx = document.getElementById('myChart1').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+        labels: ['23:54:08', '23:60:08', '24:05:23', '24:10:43', '24:15:50'],
+        datasets: [{
+            label: 'Baggage Belt 1',
+            fill:false,
+            pointBackgroundColor:"#330338",
+            borderColor:"#b924c9",
+            data: [3, 12, 23, 6, 30, 10, 45],
+
+        }
+],
+
+    },
+
+    // Configuration options go here
+    options: {}
+});
+
+
+
+
+var ctx = document.getElementById('myChart2').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+        labels: ['23:54:08', '23:60:08', '24:05:23', '24:10:43', '24:15:50'],
+        datasets: [{
+            label: 'Baggage Belt 2',
+            fill:false,
+            pointBackgroundColor:"#330338",
+            borderColor:"#2C3335",
+            data: [0, 10, 5, 2, 20, 30, 45]
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+
+
+var ctx = document.getElementById('myChart3').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+        labels: ['23:54:08', '23:60:08', '24:05:23', '24:10:43', '24:15:50'],
+        datasets: [{
+            label: 'Baggage Belt 3',
+            fill:false,
+            pointBackgroundColor:"#330338",
+            borderColor:"#EA7773",
+            data: [23, 56, 24, 67, 20, 70, 15]
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+
+
+var ctx = document.getElementById('myChart4').getContext('2d');
+var chart = new Chart(ctx, {
+    // The type of chart we want to create
+    type: 'line',
+
+    // The data for our dataset
+    data: {
+        labels: ['23:54:08', '23:60:08', '24:05:23', '24:10:43', '24:15:50'],
+        datasets: [{
+            label: 'Baggage Belt 4',
+            fill:false,
+            pointBackgroundColor:"#330338",
+            borderColor:"#b924c9",
+            data: [10, 50, 5, 20, 40, 30, 45]
+        }]
+    },
+
+    // Configuration options go here
+    options: {}
+});
+
+
+</script>
+{% endblock %}

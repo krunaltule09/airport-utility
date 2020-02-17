@@ -1,78 +1,94 @@
-
-
 body{
-	margin:0;
-	padding: 0;
-	max-width: 100%;
-	overflow-x: hidden;
-
-}
-
-.navbar{
-width: 100%;
-}
-
-.row > .sidebar{
-	
-	left:0;
-	
-	
-	
-	
-	
-	background-color:#000;
-	
-}
-
-.side-container{
-	margin:50px -15px 20px -20px;
-	list-style-type: none;
-	position:fixed;
-	height:100%;
-
-	
-	
-	
-}
-.side-container li a{
-	text-decoration: none;
-	
-	padding:20px 60px ;
-	color:aliceblue;
-}
-.side-container li{
-	list-style-type: none;
-
-	padding:30px 10px 20px 10px; 
-	
-	
-	
+    width: 100%;
+    overflow-x: hidden;
 }
 
 
-.side-container li a:hover{
-	background-color: #24292c;
+.sidebar{
+    
+    position: fixed;
+    background-color: #000;
+
+}
+
+.sidebar>ul>li>a{
+    text-decoration: none;
+    color:white;
+
+
+    
+}
+
+.sidebar>ul>li{
+    margin-top: 20px;
+    margin-left: -10px;
+    margin-right: -10px;
 }
 
 
-.navbar-brand{
-	padding:20px 18px;
+canvas{
+    margin:5px;
+    height: 250px !important;
+    width: 450px !important; 
 }
 
-.nav-item .nav-link{
-	margin: 10px;
-	padding:15px 18px;
-}
-
-.description{
-
-	background-color: rgba(224,255,255,0.4);
-	background-color: rgba(136, 232, 88,0.4);
-	padding-top: 20px;
-	
+.sidebar>ul{
+    height: 100%;
+    list-style-type: none;
+    
 }
 
 
-.gauge{
-	padding:80px 5px ;
+
+.sidebar>ul>li>a:hover{
+    background-color:brown;
+    
+}
+
+
+.nav-item{
+    padding: 15px 18px;
+}
+
+.wrapper{
+    display: inline-grid;
+
+    grid-gap: 30px;
+    grid-template-columns: auto auto;
+    
+    margin-left: 50%;
+    transform: translateX(-50%);
+
+
+}
+
+.gate1,.belt1,.home1{
+    grid-column: 1;
+    grid-row: 1;
+    text-align: center;
+}
+.gate2,.belt2,.home2{
+    grid-column: 2;
+    grid-row: 1;
+    text-align: center;
+}
+.gate3{
+    grid-column: 1 / span 2;
+    grid-row: 2;
+    text-align: center;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    
+}
+
+.belt3,.home3{
+    grid-column: 1 ;
+    grid-row: 2;
+    text-align: center;
+}
+
+.belt4,.home4{
+    grid-column: 2 ;
+    grid-row: 2;
+    text-align: center;
 }
