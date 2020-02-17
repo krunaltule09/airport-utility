@@ -33,7 +33,7 @@ def parkingDataView(request):
     print(result)
     cars=int(result['cars'])
     print(type(cars))
-    cars=cars+(cars%10)+10
+    
     context={
         "cars":cars,
         "timeCreated":result['time']
