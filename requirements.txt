@@ -97,7 +97,7 @@ PyTweening==1.0.3
 pytz==2019.1
 PyYAML==5.1.1
 reportlab==3.5.32
-requests==1.1.0
+requests==2.20.0
 requests-toolbelt==0.7.0
 rsa==4.0
 
