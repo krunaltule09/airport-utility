@@ -8,6 +8,13 @@ from firebase import firebase
 import random
 from datetime import datetime
 
+import firebase_admin
+from firebase_admin import credentials
+
+cred = credentials.Certificate("C:\Users\admin\Documents\django_projects\airport\dynamicChart\airport-22afd-firebase-adminsdk-qvabr-c1c7d9ced1.json")
+firebase_admin.initialize_app(cred)
+
+
 def gateView(request):
     return render(request,"gate.html",{})
 
