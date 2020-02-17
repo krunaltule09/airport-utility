@@ -1,7 +1,6 @@
 
 
-c
-celery==4.3.0
+
 
 
 decorator==4.4.0
@@ -15,7 +14,6 @@ django-crontab==0.7.1
 django-easy-pdf==0.1.1
 django-heroku==0.3.1
 django-import-export==1.2.0
-docopt==0.6.2
 et-xmlfile==1.0.1
 gast==0.2.2
 gcloud==0.18.3
@@ -35,17 +33,11 @@ MouseInfo==0.0.4
 numpy==1.16.4
 oauth2client==3.0.0
 odfpy==1.4.0
-opencv-python==4.1.0.25
 pandas==0.25.3
 
 pylint==2.3.1
 PyMsgBox==1.0.7
 pyparsing==2.4.2
-PyPDF2==1.26.0
-pyperclip==1.7.0
-Pyphen==0.9.5
-PyRect==0.1.4
-PyScreeze==0.1.22
 python-dateutil==2.8.0
 python-firebase==1.2
 python-jwt==2.0.1
